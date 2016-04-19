@@ -64,36 +64,26 @@
 	<form action="cadastrar" method="POST">
 	
 		<div class="input">
-			<input type="text" name="nome" placeholder="Seu nome">
+			<input type="text" name="cliente_id" placeholder="Id do Cliente">
 		</div>
 		
 		<div class="input">
-		<input type="text" name="sobrenome" placeholder="Sobrenome">
+			<input type="text" name="nome" placeholder="Nome da moto">
 		</div>
 		
 		<div class="input">
-		<input type="text" name="email" placeholder="Email">
+			<input type="text" name="modelo" placeholder="Modelo">
 		</div>
 		
 		<div class="half-input">
 			<div class="input">
-			<input type="text" name="cpf" placeholder="Cpf">
+				<input type="text" name="cor" placeholder="Cor">
 			</div>
+			<div class="input">
+				<input type="text" name="placa" placeholder="Placa">
+			</div>
+		</div>
 			
-			<div class="input">
-			<input type="text" name="telefone" placeholder="Telefone">
-			</div>
-		</div>
-		
-		<div class="half-input">
-			<div class="input">
-				<input type="password" class="password" name="senha" placeholder="Senha">
-			</div>
-		
-			<div class="input">
-				<input type="password" class="password" name="senhaVerificador" placeholder="Repita sua senha">
-			</div>
-		</div>
 		<div class="botao">
 			<button type="submit">Cadastrar</button>
 		</div>	

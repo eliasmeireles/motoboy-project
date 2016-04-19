@@ -10,6 +10,7 @@ public class Moto extends BaseEntity<Moto> {
 	private static final long serialVersionUID = 1L;
 
 	private String nome;
+	private String modelo;
 	private String cor;
 	private String placa;
 	private String cliente_id;
@@ -20,6 +21,14 @@ public class Moto extends BaseEntity<Moto> {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public String getModelo() {
+		return modelo;
+	}
+
+	public void setModelo(String modelo) {
+		this.modelo = modelo;
 	}
 
 	public String getCor() {
@@ -49,6 +58,12 @@ public class Moto extends BaseEntity<Moto> {
 	@Override
 	public void updateBasedOn(Moto target) {
 
+	}
+
+	@Override
+	public String toString() {
+		return "Moto [nome=" + nome + ", modelo=" + modelo + ", cor=" + cor + ", placa=" + placa + ", cliente_id="
+				+ cliente_id + "]";
 	}
 
 }

@@ -25,8 +25,6 @@ public class ClienteController {
 	public ModelAndView cadastrar(Cliente cliente, String senhaVerificador) {
 
 		cliente.setSenha(PasswordEncryptor.passwordEncripter(cliente.getSenha()).toString());
-		System.out.println(cliente.getSenha());
-
 		clienteDao.gravar(cliente);
 
 		return solicitante();
