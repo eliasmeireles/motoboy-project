@@ -61,6 +61,7 @@
 	}
 </style>
 <body>
+	<%@include file="../menu.jsp" %>
 	<form action="cadastrar" method="POST">
 	
 		<div class="input">

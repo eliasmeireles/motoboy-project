@@ -64,6 +64,7 @@
 </style>
 </head>
 <body>
+	<%@include file="menu.jsp" %>
 	<h1>Fast Motoboy</h1>
 	<div>
 		<form action="logar" method="POST">
