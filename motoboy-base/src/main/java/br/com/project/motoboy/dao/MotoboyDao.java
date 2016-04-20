@@ -18,7 +18,6 @@ public class MotoboyDao {
 
 	public void gravar(Motoboy motoboy) {
 		manager.persist(motoboy);
-
 	}
 
 	public Motoboy localiza(Motoboy motoboy) {

@@ -25,6 +25,7 @@
 	<div class="user-data">
 	 	<span>${user.nome}</span>
 	  	<span>${user.sobrenome}</span>
+	  	<span>${user.id}</span>
 	</div>
 </body>
 </html>

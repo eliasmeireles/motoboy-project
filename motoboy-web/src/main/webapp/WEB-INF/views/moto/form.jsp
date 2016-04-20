@@ -64,7 +64,7 @@
 	<form action="cadastrar" method="POST">
 	
 		<div class="input">
-			<input type="text" name="cliente_id" placeholder="Id do Cliente">
+			<input type="email" name="email" placeholder="Email do motoboy">
 		</div>
 		
 		<div class="input">

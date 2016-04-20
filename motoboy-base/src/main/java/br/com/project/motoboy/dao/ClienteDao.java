@@ -18,11 +18,9 @@ public class ClienteDao {
 
 	public void gravar(Cliente cliente) {
 		manager.persist(cliente);
-
 	}
 
 	public Cliente localiza(Cliente cliente) {
-
 		TypedQuery<Cliente> query = manager.createQuery("from Cliente c where email = :pEmail", Cliente.class)
 				.setParameter("pEmail", cliente.getEmail());
 		return (Cliente) query.getSingleResult();

@@ -18,7 +18,7 @@ public class Cliente extends BaseEntity<Cliente> {
 	private String email;
 	private String celular;
 	private String senha;
-	private Date cadastrado;
+	private Date datacadastro;
 
 	public String getNome() {
 		return nome;
@@ -68,15 +68,15 @@ public class Cliente extends BaseEntity<Cliente> {
 		this.celular = celular;
 	}
 
-	public Date getCadastrado() {
-		if (cadastrado != null) {
-			return cadastrado;
+	public Date getDatacadastro() {
+		if (datacadastro != null) {
+			return datacadastro;
 		}
-		return this.cadastrado = Calendar.getInstance().getTime();
+		return this.datacadastro = Calendar.getInstance().getTime();
 	}
 
-	public void setCadastrado(Date cadastrado) {
-		this.cadastrado = cadastrado;
+	public void setDatacadastro(Date datacadastro) {
+		this.datacadastro = datacadastro;
 	}
 
 	@Override

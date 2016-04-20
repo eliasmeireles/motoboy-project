@@ -18,7 +18,7 @@ public class Motoboy extends BaseEntity<Motoboy> {
 	private String email;
 	private String celular;
 	private String senha;
-	private Date cadastrado;
+	private Date datacadastro;
 
 	public String getNome() {
 		return nome;
@@ -68,13 +68,15 @@ public class Motoboy extends BaseEntity<Motoboy> {
 		this.celular = celular;
 	}
 
-	public Date getCadastrado() {
-		cadastrado = Calendar.getInstance().getTime();
-		return cadastrado;
+	public Date getDatacadastro() {
+		if (datacadastro != null) {
+			return datacadastro;
+		}
+		return this.datacadastro = Calendar.getInstance().getTime();
 	}
 
-	public void setCadastrado(Date cadastrado) {
-		this.cadastrado = cadastrado;
+	public void setDatacadastro(Date datacadastro) {
+		this.datacadastro = datacadastro;
 	}
 
 	@Override

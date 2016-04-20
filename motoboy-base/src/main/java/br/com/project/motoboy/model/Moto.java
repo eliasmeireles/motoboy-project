@@ -1,5 +1,8 @@
 package br.com.project.motoboy.model;
 
+import java.util.Calendar;
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -13,7 +16,8 @@ public class Moto extends BaseEntity<Moto> {
 	private String modelo;
 	private String cor;
 	private String placa;
-	private String cliente_id;
+	private String motoboy_id;
+	private Date datacadastro;
 
 	public String getNome() {
 		return nome;
@@ -47,23 +51,27 @@ public class Moto extends BaseEntity<Moto> {
 		this.placa = placa;
 	}
 
-	public String getCliente_id() {
-		return cliente_id;
+	public String getMotoboy_id() {
+		return motoboy_id;
 	}
 
-	public void setCliente_id(String cliente_id) {
-		this.cliente_id = cliente_id;
+	public void setMotoboy_id(String motoboy_id) {
+		this.motoboy_id = motoboy_id;
+	}
+
+	public Date getDatacadastro() {
+		if (datacadastro != null) {
+			return datacadastro;
+		}
+		return this.datacadastro = Calendar.getInstance().getTime();
+	}
+
+	public void setDatacadastro(Date datacadastro) {
+		this.datacadastro = datacadastro;
 	}
 
 	@Override
 	public void updateBasedOn(Moto target) {
 
 	}
-
-	@Override
-	public String toString() {
-		return "Moto [nome=" + nome + ", modelo=" + modelo + ", cor=" + cor + ", placa=" + placa + ", cliente_id="
-				+ cliente_id + "]";
-	}
-
 }

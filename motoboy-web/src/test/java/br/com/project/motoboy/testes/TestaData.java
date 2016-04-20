@@ -1,13 +1,11 @@
 package br.com.project.motoboy.testes;
-import br.com.project.motoboy.data.DataConverte;
-import br.com.project.motoboy.model.Cliente;
+
+import br.com.project.motoboy.model.Motoboy;
 
 public class TestaData {
 	public static void main(String[] args) {
-		Cliente cliente = new Cliente();
+		Motoboy motoboy = new Motoboy();
 		
-		
-		System.out.println(DataConverte.dataConverte(cliente.getCadastrado()));
-		
+		System.out.println(motoboy.getDatacadastro());
 	}
 }

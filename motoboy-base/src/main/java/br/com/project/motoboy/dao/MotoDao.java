@@ -12,18 +12,18 @@ import br.com.project.motoboy.model.Moto;
 @Repository
 @Transactional
 public class MotoDao {
+	
 	@PersistenceContext
 	private EntityManager manager;
 
 	public void gravar(Moto moto) {
 		manager.persist(moto);
-
 	}
 
 	public Moto localiza(Moto moto) {
 
-		TypedQuery<Moto> query = manager.createQuery("from Moto m where m.cliente_id = :pCliente_id", Moto.class)
-				.setParameter("pEmail", moto.getCliente_id());
+		TypedQuery<Moto> query = manager.createQuery("from Moto m where m.motoboy_id = :pMotoboy_id", Moto.class)
+				.setParameter("pEmail", moto.getMotoboy_id());
 		return (Moto) query.getSingleResult();
 	}
 }
