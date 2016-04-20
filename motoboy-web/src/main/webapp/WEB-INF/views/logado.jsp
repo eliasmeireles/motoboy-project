@@ -10,9 +10,6 @@
 <title>Insert title here</title>
 <style>
 	.user-data {
-		position: absolute;
-	    right: 0;
-	    left: 0;
 	    width: 340px;
 	    margin: 0 auto;
 	    padding: 2ch;
@@ -21,10 +18,8 @@
 	    color: white;
 	    font-size: 1em;
 	    border-radius: 10px;
-	    top: 102px;
 	    font-family: 'Roboto Condensed', 'Arial', 'sans-serif';
 		font-weight: bold;
-		color: black;
 	}
 </style>
 </head>

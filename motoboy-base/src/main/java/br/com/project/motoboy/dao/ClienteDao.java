@@ -1,5 +1,7 @@
 package br.com.project.motoboy.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
@@ -24,5 +26,9 @@ public class ClienteDao {
 		TypedQuery<Cliente> query = manager.createQuery("from Cliente c where email = :pEmail", Cliente.class)
 				.setParameter("pEmail", cliente.getEmail());
 		return (Cliente) query.getSingleResult();
+	}
+	public List<Cliente> localizaTodos(Cliente cliente) {
+		TypedQuery<Cliente> query = manager.createQuery("from Cliente", Cliente.class);
+		return (List<Cliente>) query.getResultList();
 	}
 }

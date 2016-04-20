@@ -3,12 +3,14 @@ package br.com.project.motoboy.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.com.project.motoboy.dao.ClienteDao;
 import br.com.project.motoboy.dao.MotoboyDao;
 import br.com.project.motoboy.model.Cliente;
 import br.com.project.motoboy.model.Motoboy;
+import br.com.project.motoboy.validation.LoginValidater;
 
 @Controller
 public class HomeController {
@@ -18,12 +20,12 @@ public class HomeController {
 	@Autowired
 	private MotoboyDao motoboyDaoo;
 
-	@RequestMapping("/")
+	@RequestMapping(method = RequestMethod.GET)
 	public static ModelAndView home() {
 		return new ModelAndView("home");
 	}
 
-	@RequestMapping("/logar")
+	@RequestMapping(value  = "/logar", method = RequestMethod.POST)
 	public ModelAndView logar(Motoboy m, Cliente c) {
 		try {
 			try {

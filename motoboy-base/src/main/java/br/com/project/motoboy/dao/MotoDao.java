@@ -1,5 +1,7 @@
 package br.com.project.motoboy.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
@@ -25,5 +27,10 @@ public class MotoDao {
 		TypedQuery<Moto> query = manager.createQuery("from Moto m where m.motoboy_id = :pMotoboy_id", Moto.class)
 				.setParameter("pEmail", moto.getMotoboy_id());
 		return (Moto) query.getSingleResult();
+	}
+	
+	public List<Moto> localizaTodos(Moto moto) {
+		TypedQuery<Moto> query = manager.createQuery("from Moto", Moto.class);
+		return (List<Moto>) query.getResultList();
 	}
 }

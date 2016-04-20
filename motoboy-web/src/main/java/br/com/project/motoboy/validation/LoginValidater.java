@@ -1,7 +1,8 @@
-package br.com.project.motoboy.controller;
+package br.com.project.motoboy.validation;
 
 import org.springframework.web.servlet.ModelAndView;
 
+import br.com.project.motoboy.controller.HomeController;
 import br.com.project.motoboy.dao.ClienteDao;
 import br.com.project.motoboy.dao.MotoboyDao;
 import br.com.project.motoboy.model.Cliente;

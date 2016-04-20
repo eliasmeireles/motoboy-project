@@ -4,6 +4,11 @@
     	margin: 0;
     	font-family: 'Roboto Condensed', 'Arial', 'sans-serif';
 	}
+	.main {
+	    max-width: 1366px;
+    	width: 100%;
+    	margin: 0 auto;
+	}
 	.header-page {
 		width: 100%;
 		padding-bottom: 3ch;
@@ -31,6 +36,11 @@
 		color: black;
 		text-decoration: none;
 	}
+	.informe-cadastro {
+		width: 30%;
+		margin: 0 auto;
+		text-align: center;
+	}
 </style>
 	<div class="header-page">
 		<div class="menu">
@@ -39,13 +49,16 @@
 					<a href="http://localhost:8080/motoboy-web/">Home</a>
 				</li>
 				<li class="nav-link">
-					<a href="http://localhost:8080/motoboy-web/motoboy/novo">Novo Motoboy</a>
+					<a href="http://localhost:8080/motoboy-web/motoboy">Novo Motoboy</a>
 				</li>
 				<li class="nav-link">
-					<a href="http://localhost:8080/motoboy-web/cliente/solicitante">Novo Usuario</a>
+					<a href="http://localhost:8080/motoboy-web/cliente/">Novo Usuario</a>
 				</li>
 				<li class="nav-link">
-					<a href="http://localhost:8080/motoboy-web/moto/nova">Cadastrar Moto</a>
+					<a href="http://localhost:8080/motoboy-web/moto">Cadastrar Moto</a>
+				</li>
+				<li class="nav-link">
+					<a href="http://localhost:8080/motoboy-web/motoboy/lista">Lista de Motoboys</a>
 				</li>
 			</ul>
 		</div>
