@@ -81,7 +81,7 @@
 			</div>
 			
 			<div class="input">
-			<input type="text" name="telefone" placeholder="Telefone">
+			<input type="text" name="celular" placeholder="Celular">
 			</div>
 		</div>
 		

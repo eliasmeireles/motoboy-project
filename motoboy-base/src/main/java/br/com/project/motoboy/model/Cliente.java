@@ -1,5 +1,8 @@
 package br.com.project.motoboy.model;
 
+import java.util.Calendar;
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -13,8 +16,9 @@ public class Cliente extends BaseEntity<Cliente> {
 	private String sobrenome;
 	private String cpf;
 	private String email;
-	private String telefone;
+	private String celular;
 	private String senha;
+	private Date cadastrado;
 
 	public String getNome() {
 		return nome;
@@ -48,14 +52,6 @@ public class Cliente extends BaseEntity<Cliente> {
 		this.email = email;
 	}
 
-	public String getTelefone() {
-		return telefone;
-	}
-
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
-	}
-
 	public String getSenha() {
 		return senha;
 	}
@@ -64,13 +60,27 @@ public class Cliente extends BaseEntity<Cliente> {
 		this.senha = senha;
 	}
 
+	public String getCelular() {
+		return celular;
+	}
+
+	public void setCelular(String celular) {
+		this.celular = celular;
+	}
+
+	public Date getCadastrado() {
+		if (cadastrado != null) {
+			return cadastrado;
+		}
+		return this.cadastrado = Calendar.getInstance().getTime();
+	}
+
+	public void setCadastrado(Date cadastrado) {
+		this.cadastrado = cadastrado;
+	}
+
 	@Override
 	public void updateBasedOn(Cliente target) {
 
-	}
-	@Override
-	public String toString() {
-		return "Cliente [nome=" + nome + ", sobrenome=" + sobrenome + ", cpf=" + cpf + ", email=" + email
-				+ ", telefone=" + telefone + ", senha=" + senha + "]";
 	}
 }

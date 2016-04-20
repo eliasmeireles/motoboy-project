@@ -1,5 +1,8 @@
 package br.com.project.motoboy.model;
 
+import java.util.Calendar;
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -8,13 +11,14 @@ import javax.persistence.Table;
 public class Motoboy extends BaseEntity<Motoboy> {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	private String nome;
 	private String sobrenome;
 	private String cpf;
 	private String email;
-	private String telefone;
+	private String celular;
 	private String senha;
+	private Date cadastrado;
 
 	public String getNome() {
 		return nome;
@@ -48,14 +52,6 @@ public class Motoboy extends BaseEntity<Motoboy> {
 		this.email = email;
 	}
 
-	public String getTelefone() {
-		return telefone;
-	}
-
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
-	}
-
 	public String getSenha() {
 		return senha;
 	}
@@ -64,15 +60,25 @@ public class Motoboy extends BaseEntity<Motoboy> {
 		this.senha = senha;
 	}
 
+	public String getCelular() {
+		return celular;
+	}
+
+	public void setCelular(String celular) {
+		this.celular = celular;
+	}
+
+	public Date getCadastrado() {
+		cadastrado = Calendar.getInstance().getTime();
+		return cadastrado;
+	}
+
+	public void setCadastrado(Date cadastrado) {
+		this.cadastrado = cadastrado;
+	}
+
 	@Override
 	public void updateBasedOn(Motoboy target) {
 
 	}
-
-	@Override
-	public String toString() {
-		return "Motoboy [nome=" + nome + ", sobrenome=" + sobrenome + ", cpf=" + cpf + ", email=" + email
-				+ ", telefone=" + telefone + ", senha=" + senha + ", id=" + id + "]";
-	}
-
 }
