@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-</head>
+    
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="importPath" tagdir="/WEB-INF/tags/import" %>
+		
+<importPath:header styles="pages/minha-conta.css" scripts="minha-conta.js" />
+		
 <style>
 	form {
 		display: block;
@@ -60,9 +62,9 @@
     	border: none;
 	}
 </style>
-<body>
-	<%@include file="../menu.jsp" %>
-	<form action="cadastrar" method="POST">
+
+
+	<form action="${contextPath }moto/cadastrar" method="POST">
 	
 		<div class="input">
 			<input type="email" name="email" placeholder="Email do motoboy">
@@ -89,5 +91,4 @@
 			<button type="submit">Cadastrar</button>
 		</div>	
 	</form>
-</body>
-</html>
+<importPath:footer />

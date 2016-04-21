@@ -1,0 +1,92 @@
+body {
+    font-family:  'Open Sans', sans-serif;
+}
+.background-primary {
+    background: #FFFFFF;
+}
+.background-primary_light {
+    background: #009f8c;
+}
+.background-primary_dark {
+    background: #3d3d3d;
+}
+.background-secondary {
+    background: #009f8c;
+}
+.background-secondary_light {
+    background: #453634;
+}
+.background-secondary-dark_light {
+    background: #1cbab6;
+}
+.background-secondary_dark {
+    background: #d8d8d8;
+}
+.background-container-itens {
+    background: #CCBB9C;
+}
+.color_primary  {
+    color: #4a4a4a;
+}
+.color_primary_light {
+    color: #ffffff;
+}
+.color-secondary {
+    color: #009f8c;
+}
+.color-secondary_light {
+    color: #c4c4c4;
+}
+.color-secondary_darck {
+    color: #453634;
+}
+.color-secondary_darck_mediun {
+    color: #a8a198;
+}
+
+.color-secondary_darck_light {
+    color: #888888;
+}
+.color_primary_mediun_light {
+    color: #918b82;
+}
+.font-primary {
+    font-family:  'Open Sans', sans-serif;
+}
+.font-secondary {
+    font-family:  ;
+}
+.font-primary_dark {
+    font-family: '';
+}
+.font-primary-italic {
+    font-family: 'Open Sans', sans-serif;
+    font-style: italic;
+}
+.font-primary-bold {
+	font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    
+}
+.font-primary-bold_mediun {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+}
+.font-secondary-light {
+    font-family: 'Oswald-Light';
+}
+a {
+    text-decoration: none;
+}
+a:link {
+    color: #000;
+}
+a:visited {
+    color: #000;
+}
+a:hover {
+    color: #000;
+}
+a:active {
+    color: #00F;
+}

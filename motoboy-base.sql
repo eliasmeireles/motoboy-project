@@ -21,7 +21,7 @@ create table motoboy (
     senha varchar(96) not null,
 	cpf char(11) not null unique,
 	email varchar(50) not null unique,
-    datacadastro datxe not null,
+    datacadastro date not null,
 	celular char(12) not null
 );
 alter table motoboy add constraint pk_motoboy primary key (id);

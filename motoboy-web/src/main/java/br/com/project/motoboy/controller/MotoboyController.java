@@ -2,8 +2,12 @@ package br.com.project.motoboy.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -27,12 +31,23 @@ public class MotoboyController {
 
 	@RequestMapping(value = "/sucsses", method = RequestMethod.GET)
 	public ModelAndView sucsses() {
-		return new ModelAndView("motoboy/sucsses");
+		return new ModelAndView("/motoboy/sucsses");
 	}
 
 	@RequestMapping(value = "/cadastrar", method = RequestMethod.POST)
-	public ModelAndView cadastrar(Motoboy motoboy, RedirectAttributes redirectAttributes) {
+	public ModelAndView cadastrar(@Valid Motoboy motoboy, BindingResult result, RedirectAttributes redirectAttributes) {
 
+		if (result.hasErrors()) {
+			System.out.println("Entrei no error");
+			
+			List<ObjectError> erros = result.getAllErrors();
+			
+			for (ObjectError objectError : erros) {
+				System.out.println(objectError);
+			}
+			return motoboy();
+		}
+		
 		motoboy.setSenha(PasswordEncryptor.passwordEncripter(motoboy.getSenha()).toString());
 
 		motoboyDao.gravar(motoboy);

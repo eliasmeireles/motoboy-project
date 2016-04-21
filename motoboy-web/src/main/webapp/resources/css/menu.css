@@ -1,0 +1,161 @@
+@CHARSET "ISO-8859-1";
+.main {
+	padding-top: 93px;
+}
+.header-menu {
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	height: 93px;
+	z-index: 100;
+}
+.menu-header {
+	height: 93px;
+	position: relative;
+}
+.menu-container {
+    display: flex;
+	position: absolute;
+	top: 30%;
+	right: 5%;
+}
+.menu-nav-bar {
+	display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+.navication-link.nav-link-active {
+	color: red;
+}
+.nav-link .navication-link {
+	color: #FFFFFF;
+}
+.qvtv-logo .logo-image {
+	position: absolute;
+	margin-top: 10px;
+	width: 67.2px;
+	height: 63.2px;
+	background-size: 100% 100%;
+	left: 5%;
+}
+.menu-nav-bar .nav-link {
+	font-size: 1em;
+}
+
+.menu-nav-bar .nav-link:not(:last-of-type) {
+	margin-right: 20px;
+}
+.menu-nav-bar .nav-link .link-login {
+    display: block;
+    width: 122px;
+    height: 30px;
+    padding-top: 11px;
+    border-radius: 2px;
+    text-align: center;
+    border-radius: 2px;
+}
+.login-seta {
+    width: 15px;
+    height: 15px;
+    margin-top: -7px;
+    transform: rotate(43deg);
+    position: absolute;
+    right: 85px;
+    z-index: 0;
+}
+.menu-container .login-container {
+	position: absolute;
+	width: 291px;
+	right: -20%;
+	opacity: 0;
+	top: -350px;
+	transition: 200ms ease-in;
+  	border-radius: 2px;
+	cursor: initial;
+}
+.menu-container .qvtv-login.active {
+  	opacity: 1;
+  	top: 46px;
+	transition: 400ms ease-in;
+}
+.toggle-login.active {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+.form-login {
+	margin-top: 20px;
+}
+.user-col, .password-col {
+	position: relative;
+}
+.user-col:BEFORE {
+	position: absolute;
+	top: 7px;
+	left: 7px;
+	content:'';
+	display: inline-block;
+	height: 20px;
+	width: 20px;
+	background-image: url("../img/page-1@3x.png");
+	background-size: 100% 100%;
+	background-repeat: no-repeat; 
+}
+.password-col:BEFORE {
+	content:'';
+	position: absolute;
+	top: 7px;
+	left: 7px;
+	display: inline-block;
+	height: 20px;
+	width: 20px;
+	background: #DDD url("../img/fill-1@3x.png") 0 center no-repeat;
+	background-size: 100% 100%;
+	background-repeat: no-repeat; 
+}
+.login-box {
+	width: 75%;
+	height: 34px;
+	padding-left: 40px;
+	margin: auto;
+  	margin-bottom: 20px;
+  	border-radius: 2px;
+  	background: #DDD;
+}
+.login-box input {
+	display: block;
+    width: 100%;
+    height: 100%;
+    outline: 0;
+    border: none;
+    font-size: 1em;
+    border-radius: 3px;
+    background: transparent;
+}
+.form-login .lost-password {
+	display: block;
+	text-align: center;
+	margin-bottom: 20px;
+	color: #9b9b9b;
+}
+.btn {
+    display: block;
+ 	width: 122px;
+ 	margin: 0 auto;
+	padding: .4em;
+	border: none;
+	border-radius: 2px;
+    letter-spacing: 0.5px;
+	cursor: pointer;
+	font-size: 1em;
+	outline: 0;
+}
+.btn-entrar {
+	margin-bottom: 20px;
+}
+.btn-login {
+    position: relative;
+}

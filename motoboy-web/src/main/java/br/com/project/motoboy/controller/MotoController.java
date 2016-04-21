@@ -3,6 +3,7 @@ package br.com.project.motoboy.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.com.project.motoboy.dao.MotoDao;
@@ -19,12 +20,12 @@ public class MotoController {
 	@Autowired
 	MotoboyDao motoboyDao;
 	
-	@RequestMapping("/nova")
+	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView motoForm() {
 		return new ModelAndView("/moto/form");
 	}
 	
-	@RequestMapping("/cadastrar")
+	@RequestMapping(value = "/cadastrar", method = RequestMethod.POST)
 	public ModelAndView cadastrar(Moto moto, String email) {
 		ModelAndView modelAndView = new ModelAndView("/moto/form");
 		

@@ -1,0 +1,33 @@
+html, body {
+	height: 100%;
+}
+
+.wrapper {
+	min-height: 100%;
+	position: relative;
+}
+
+.main {
+	padding-bottom: 93px; /* Igual ao height do footer */
+}
+
+.footer {
+	box-sizing: border-box;
+	height: 93px; /* Igual ao padding do wrapper */
+	width: 100%;
+	bottom: 0;
+	position: absolute;
+	background: url("../img/splash-background.png") repeat;
+}
+
+.footer-info {
+	width: 23%;
+	margin: 0 auto;
+	text-align: center;
+	padding-top: 37px;
+}
+
+.footer-info a {
+	font-size: 1em;
+	color: rgba(175, 167, 167, 0.64);
+}
