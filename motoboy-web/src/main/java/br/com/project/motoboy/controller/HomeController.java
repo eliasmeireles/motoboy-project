@@ -20,7 +20,7 @@ public class HomeController {
 	@Autowired
 	private MotoboyDao motoboyDaoo;
 
-	@RequestMapping(method = RequestMethod.GET)
+	@RequestMapping("/")
 	public static ModelAndView home() {
 		return new ModelAndView("home");
 	}
