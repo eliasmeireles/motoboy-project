@@ -7,7 +7,7 @@
 <c:url var="contextPath" value="/" />
 <c:url var="jsPath" value="/resources/js/" />
 <c:url var="cssPath" value="/resources/css/" />
-
+<c:url var="menu-css" value="/resources/css/menu.css" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,7 +33,7 @@
 <script type="text/javascript" src="${jsPath}login.js"></script>
 <script type="text/javascript" src="${jsPath}mask.js"></script>
 <script type="text/javascript" src="${jsPath}jquery.mask.min.js"></script>
-<link href="<c:url value="/resources/css/menu.css" />" rel="stylesheet">
+<link href="${menu-css }" rel="stylesheet">
 
 <c:forEach items="${scripts}" var="js">
 	<script type="text/javascript" src="${jsPath}${fn:trim(js)}"></script>
@@ -42,7 +42,34 @@
 <c:forEach items="${styles}" var="css">
 	<link rel="stylesheet" type="text/css" href="${cssPath}${fn:trim(css)}" />
 </c:forEach>
-
+<style>
+	body {
+		margin: 0 auto;
+		padding: 0;
+		font-family: 'Open Sans', sans-serif;
+	}
+	.main {
+		max-width: 1366px;
+		width: 100%;
+		margin: 0 auto;
+	}
+	.menu-nav-bar {
+		background: #1fcfcb;
+		height: 85px;
+		display: flex;
+	    align-items: center;
+	}
+	.nav-link {
+		flex: 1;
+		text-align: center;
+	    list-style: none;
+	}
+	.nav-link .navication-link {
+	    text-decoration: none;
+	    font-weight: bold;
+	    color: black;
+	}
+</style>
 </head>
 <body>
 

@@ -4,9 +4,11 @@
     <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
     
     
-<!DOCTYPE>
-<html>
-<head>
+<%@ taglib prefix="import" tagdir="/WEB-INF/tags/import" %>
+		
+<import:header styles="pages/home.css, pages/carousel.css"
+	scripts="carousel.js, home.js" />
+	
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 
@@ -38,8 +40,6 @@
 
 </head>
 <body>
-	<%@include file="../menu.jsp" %>
-	
 	<main class="main">
 		<table class="table-container">
 			<thead>

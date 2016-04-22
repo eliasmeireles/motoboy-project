@@ -6,7 +6,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="importPath" tagdir="/WEB-INF/tags/import" %>
 		
-<importPath:header styles="pages/minha-conta.css" scripts="minha-conta.js" />
+<importPath:header  />
 		
 <style>
 	form {
