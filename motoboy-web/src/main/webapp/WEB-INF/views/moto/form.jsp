@@ -16,27 +16,8 @@
 	<div class="container">
 			<h3 class="cadastro-title">Seja bem vindo ao nosso site</h3>
 			
-			
-			<form:form action="${contextPath}motoboy/cadastrar" method="post" commandName="moto" class="register-form">
-				<div class="input">
-					<html:input label="Nome" name="nome" cssClass="form-box font-primary background-secondary_dark " />
-				</div>
-				<div class="input">
-					<html:input label="Modelo" name="modelo" cssClass="form-box font-primary background-secondary_dark " />
-				</div>
-				<div class="midle-input">
-					<div class="input midle-input_container">
-						<html:input label="Cor" name="cor" cssClass="midle-form-box font-primary background-secondary_dark " />
-					</div>
-					<div class="input midle-input_container">
-						<html:input label="Placa" name="placa" mask="aaa-0000" cssClass="midle-form-box font-primary background-secondary_dark " />
-					</div>
-				</div>
-				
-				<div class="btn">	
-					<button type="submit" class="btn-submit background-secondary color-secondary_light font-primary-bold">Adicionar</button>
-				</div>		
-	
+			<form:form action="${contextPath}motoboy/cadastrar" method="post" commandName="motoboy" cssClass="register-form">
+				<import:form />
 			</form:form>
 
 	</div>

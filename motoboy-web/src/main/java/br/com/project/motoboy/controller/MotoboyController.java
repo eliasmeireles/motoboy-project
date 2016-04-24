@@ -10,14 +10,17 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.ObjectError;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.project.motoboy.dao.MotoboyDao;
+import br.com.project.motoboy.dao.MotoboyValidaDao;
 import br.com.project.motoboy.model.Motoboy;
 import br.com.project.motoboy.security.PasswordEncryptor;
+import br.com.project.motoboy.validation.MotoboyValidation;
 
 @Controller
 @RequestMapping("/motoboy")
@@ -25,10 +28,18 @@ public class MotoboyController {
 
 	@Autowired
 	private MotoboyDao motoboyDao;
+	
+	@Autowired
+	private MotoboyValidaDao validaDao;
+	
+	@InitBinder
+	public void initBinder(WebDataBinder binder) {
+		binder.addValidators(new MotoboyValidation(validaDao));
+	}
 
 	@RequestMapping(method = GET)
 	public ModelAndView motoboy(Motoboy motoboy) {
-		return new ModelAndView("/motoboy/form", "user", motoboy);
+		return new ModelAndView("/motoboy/form", "motoboy", motoboy);
 	}
 
 
@@ -36,21 +47,14 @@ public class MotoboyController {
 	public ModelAndView cadastrar(@Valid Motoboy motoboy, BindingResult result, RedirectAttributes redirectAttributes) {
 
 		if (result.hasErrors()) {
-			System.out.println("Entrei no error");
-			
-			List<ObjectError> erros = result.getAllErrors();
-			
-			for (ObjectError objectError : erros) {
-				System.out.println(objectError);
-			}
-			return new ModelAndView("/motoboy/cadastrar");
+			return motoboy(motoboy);
 		}
 		
 		motoboy.setSenha(PasswordEncryptor.passwordEncripter(motoboy.getSenha()).toString());
 
 		motoboyDao.gravar(motoboy);
 
-		redirectAttributes.addFlashAttribute("user", motoboy);
+		redirectAttributes.addFlashAttribute("motoboy", motoboy);
 
 		return new ModelAndView("redirect:/motoboy/sucsses");
 	}

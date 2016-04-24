@@ -28,7 +28,7 @@ public class ClienteController {
 	private ClienteDao clienteDao;
 	
 	@Autowired
-	ClienteValidaDao validaDao;
+	private ClienteValidaDao validaDao;
 	
 
 	@InitBinder

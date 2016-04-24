@@ -13,10 +13,10 @@
     margin-right: 2%;
 }
 .input {
-	height: 75px;
     width: 100%;
-    border-radius: 5px;
+	height: 75px;
     margin: 0 auto;
+    border-radius: 5px;
     font-weight: bold;
 }
 .input:HOVER {
@@ -26,21 +26,21 @@
 }
 .midle-form-box, .form-box {
 	display: block;
-    width: 92%;
-    height: 60%;
-    font-size: 1em;
-    padding-left: 2ch;
+    width: 93%;
+    height: 50%;
     outline: 0;
-    border: .5px solid #C3C2C8;
+    font-size: 1em;
+    padding-left: 1ch;
     border-radius: 8px;
+    border: .5px solid #C3C2C8;
 }
 .form-box {
 	display: block;
-    width: 96%;
-    font-size: 1em;
-    padding-left: 2ch;
+    width: 97%;
+    height: 50%;
     outline: 0;
-    height: 60%;
+    font-size: 1em;
+    padding-left: 1ch;
     border-radius: 8px;
 }
 .form-box:HOVER, .midle-form-box:HOVER {

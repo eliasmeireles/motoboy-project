@@ -14,26 +14,11 @@ public class Motoboy extends BaseEntity<Motoboy> {
 
 	private static final long serialVersionUID = 1L;
 
-	@NotNull
-	@Size(min = 4)
 	private String nome;
-	@NotNull
-	@Size(min = 4)
 	private String sobrenome;
-
-	@NotNull
-	@Size(max = 14, min = 14)
 	private String cpf;
-
-	@NotNull
-	@Size(min = 15)
 	private String email;
-	@NotNull
-	@Size(max = 14)
 	private String celular;
-
-	@NotNull
-	@Size(min = 8)
 	private String senha;
 	private Date datacadastro;
 

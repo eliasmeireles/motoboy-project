@@ -71,6 +71,10 @@
 	z-index: 999;
 }
 /* login container config  */
+.login-container .input .form-box {
+	width: 85%;
+	height: 100%;
+}
 .active-login {
     position: fixed;
     top: 0;

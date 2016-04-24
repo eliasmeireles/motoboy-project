@@ -4,20 +4,19 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
-import br.com.project.motoboy.dao.ClienteValidaDao;
-import br.com.project.motoboy.model.Cliente;
+import br.com.project.motoboy.dao.MotoboyValidaDao;
+import br.com.project.motoboy.model.Motoboy;
 
-public class ClienteValidation implements Validator {
+public class MotoboyValidation implements Validator {
 
-	private ClienteValidaDao valida;
-	
-	
-	public ClienteValidation(ClienteValidaDao valida) {
+	private MotoboyValidaDao valida;
+
+	public MotoboyValidation(MotoboyValidaDao valida) {
 		this.valida = valida;
 	}
 
 	public boolean supports(Class<?> clazz) {
-		return Cliente.class.isAssignableFrom(clazz);
+		return Motoboy.class.isAssignableFrom(clazz);
 	}
 
 	@Override
@@ -29,28 +28,27 @@ public class ClienteValidation implements Validator {
 		ValidationUtils.rejectIfEmpty(errors, "celular", "field.required");
 		ValidationUtils.rejectIfEmpty(errors, "senha", "field.required.senha.null");
 
-		Cliente cliente = (Cliente) target;
+		Motoboy motoboy = (Motoboy) target;
 		
 		
-		if (valida.validaEmail(cliente)) {
+		if (valida.validaEmail(motoboy)) {
 			errors.rejectValue("email", "field.required.emailregistrado");
 		}
-		if (valida.validaCpf(cliente)) {
+		if (valida.validaCpf(motoboy)) {
 			errors.rejectValue("cpf", "field.required.cpfregistrado");
 		}
 		
 
-		if (cliente.getSenha().length() < 8) {
+		if (motoboy.getSenha().length() < 8) {
 			errors.rejectValue("senha", "field.required.pequena");
 		}
 		
-		if(cliente.getCelular().length() < 14 || cliente.getCelular().length() > 14) {
+		if(motoboy.getCelular().length() < 14 || motoboy.getCelular().length() > 14) {
 			errors.reject("celular", "field.required");
 		}
-		if(cliente.getCpf().length() < 14 || cliente.getCpf().length() > 14) {
+		if(motoboy.getCpf().length() < 14 || motoboy.getCpf().length() > 14) {
 			errors.reject("cpf", "field.require");
 		}
 		
 	}
-
 }

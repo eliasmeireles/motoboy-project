@@ -15,9 +15,11 @@ import br.com.project.motoboy.controller.HomeController;
 import br.com.project.motoboy.dao.ClienteDao;
 import br.com.project.motoboy.dao.ClienteValidaDao;
 import br.com.project.motoboy.dao.MotoboyDao;
+import br.com.project.motoboy.dao.MotoboyValidaDao;
 
 @EnableWebMvc
-@ComponentScan(basePackageClasses = { HomeController.class, ClienteDao.class,ClienteValidaDao.class, MotoboyDao.class })
+@ComponentScan(basePackageClasses = { HomeController.class, ClienteDao.class,
+		ClienteValidaDao.class, MotoboyValidaDao.class, MotoboyDao.class })
 public class AppWebConfiguration extends WebMvcConfigurerAdapter {
 
 	@Override

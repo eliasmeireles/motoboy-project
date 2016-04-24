@@ -17,30 +17,32 @@ public class ClienteValidaDao {
 
 	@PersistenceContext
 	private EntityManager manager;
-	
+
 	public boolean validaEmail(Cliente cliente) {
 		try {
 			TypedQuery<Cliente> query = manager.createQuery("from Cliente c where c.email = :email", Cliente.class)
 					.setParameter("email", cliente.getEmail());
-			List<Cliente> c = query.getResultList();
-			
-			if (c.size() == 0) {
-				return false;
-			}
-			return true;
+			return validaCliente(query);
 		} catch (Exception e) {
-			System.out.println(e);
 			return false;
 		}
 	}
-	
+
 	public boolean validaCpf(Cliente cliente) {
 		try {
-			manager.createQuery("from Cliente c where c.cpf = :cpf", Cliente.class)
-					.setParameter("cpf", cliente.getEmail());
-			return true;
+			TypedQuery<Cliente> query = manager.createQuery("from Cliente c where c.cpf = :cpf", Cliente.class)
+					.setParameter("cpf", cliente.getCpf());
+			return validaCliente(query);
 		} catch (Exception e) {
 			return false;
 		}
+	}
+
+	private boolean validaCliente(TypedQuery<Cliente> query) {
+		List<Cliente> c = query.getResultList();
+		if (c.size() == 0) {
+			return false;
+		}
+		return true;
 	}
 }

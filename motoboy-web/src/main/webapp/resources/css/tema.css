@@ -15,16 +15,13 @@ body {
     background: #24508d;
 }
 .background-secondary_light {
-    background: #453634;
+    background: #d3d7cf;
 }
 .background-secondary-dark_light {
     background: #1cbab6;
 }
 .background-secondary_dark {
-	background: #d3d7cf;
-}
-.background-container-itens {
-    background: #CCBB9C;
+	background: #453634;
 }
 .color_primary  {
     color: #4a4a4a;
