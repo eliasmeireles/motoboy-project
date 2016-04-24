@@ -3,16 +3,16 @@ body {
     font-family:  'Open Sans', sans-serif;
 }
 .background-primary {
-    background: #FFFFFF;
+    background: #24508d;
 }
 .background-primary_light {
     background: #009f8c;
 }
 .background-primary_dark {
-    background: #3d3d3d;
+    background: #87858f;
 }
 .background-secondary {
-    background: #009f8c;
+    background: #24508d;
 }
 .background-secondary_light {
     background: #453634;
@@ -21,7 +21,7 @@ body {
     background: #1cbab6;
 }
 .background-secondary_dark {
-    background: #d8d8d8;
+	background: #d3d7cf;
 }
 .background-container-itens {
     background: #CCBB9C;
@@ -69,6 +69,9 @@ body {
     font-weight: bold;
     
 }
+::-webkit-input-placeholder {
+   	color: #7C7C7C;
+}
 .font-primary-bold_mediun {
     font-family: 'Open Sans', sans-serif;
     font-weight: 600;
@@ -90,4 +93,8 @@ a:hover {
 }
 a:active {
     color: #00F;
+}
+.error {
+    color: red;
+    font-size: 0.9em;
 }

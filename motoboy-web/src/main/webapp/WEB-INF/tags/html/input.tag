@@ -11,5 +11,5 @@
 <%@ attribute name="cssClass" required="false"%>
 <%@ attribute name="cssErrorClass" required="false"%>
 
-<html:validation name="${name}" cssClass="${cssErrorClass}" />
 <form:input path="${name}" placeholder="${label}" data-mask="${mask}" cssClass="${cssClass}" />
+<html:validation name="${name}" cssClass="${cssErrorClass}" />

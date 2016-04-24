@@ -8,20 +8,22 @@ html, body {
 }
 
 .main {
-	padding-bottom: 93px; /* Igual ao height do footer */
+	padding-top: 80px;
+	padding-bottom: 80px; /* Igual ao height do footer */
 }
 
 .footer {
 	box-sizing: border-box;
-	height: 93px; /* Igual ao padding do wrapper */
+	height: 80px; /* Igual ao padding do wrapper */
 	width: 100%;
 	bottom: 0;
 	position: absolute;
-	background: url("../img/splash-background.png") repeat;
+	margin-top: 80px;
+	box-shadow: 0px -29px 80px 0px #888a85;
 }
 
 .footer-info {
-	width: 23%;
+	width: 100%;
 	margin: 0 auto;
 	text-align: center;
 	padding-top: 37px;
@@ -29,5 +31,5 @@ html, body {
 
 .footer-info a {
 	font-size: 1em;
-	color: rgba(175, 167, 167, 0.64);
+	color: #c4c4c4;
 }

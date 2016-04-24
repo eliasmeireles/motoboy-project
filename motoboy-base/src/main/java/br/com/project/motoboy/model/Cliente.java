@@ -6,6 +6,8 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+import org.hibernate.validator.constraints.br.CPF;
+
 @Entity
 @Table(name = "cliente")
 public class Cliente extends BaseEntity<Cliente> {
@@ -14,6 +16,8 @@ public class Cliente extends BaseEntity<Cliente> {
 
 	private String nome;
 	private String sobrenome;
+	
+	@CPF
 	private String cpf;
 	private String email;
 	private String celular;
@@ -83,4 +87,11 @@ public class Cliente extends BaseEntity<Cliente> {
 	public void updateBasedOn(Cliente target) {
 
 	}
+
+	@Override
+	public String toString() {
+		return "Cliente [nome=" + nome + ", sobrenome=" + sobrenome + ", cpf=" + cpf + ", email=" + email + ", celular="
+				+ celular + ", senha=" + senha + ", datacadastro=" + datacadastro + "]";
+	}
+	
 }

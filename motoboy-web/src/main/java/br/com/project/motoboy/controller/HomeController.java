@@ -1,40 +1,24 @@
 package br.com.project.motoboy.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import static org.springframework.web.bind.annotation.RequestMethod.GET;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import br.com.project.motoboy.dao.ClienteDao;
-import br.com.project.motoboy.dao.MotoboyDao;
 import br.com.project.motoboy.model.Cliente;
-import br.com.project.motoboy.model.Motoboy;
-import br.com.project.motoboy.validation.LoginValidater;
 
 @Controller
+@RequestMapping
 public class HomeController {
 
-	@Autowired
-	private ClienteDao clienteDao;
-	@Autowired
-	private MotoboyDao motoboyDaoo;
-
-	@RequestMapping("/")
-	public static ModelAndView home() {
-		return new ModelAndView("home");
+	@RequestMapping(method = GET)
+	public ModelAndView home() {
+		Cliente c = new Cliente();
+		return new ModelAndView("home", "user", c);
 	}
-
-	@RequestMapping(value  = "/logar", method = RequestMethod.POST)
-	public ModelAndView logar(Motoboy m, Cliente c) {
-		try {
-			try {
-				return LoginValidater.localizaMotoboy(m, motoboyDaoo);
-			} catch (Exception e) {
-				return LoginValidater.localizaCliente(c, clienteDao);
-			}
-		} catch (Exception e) {
-			return home();
-		}
+	@RequestMapping(value = "/logado", method = GET)
+	public String logado() {
+		return "logado";
 	}
 }

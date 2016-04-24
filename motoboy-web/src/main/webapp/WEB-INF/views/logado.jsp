@@ -1,33 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    
-    
-<!DOCTYPE>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-<style>
-	.user-data {
-	    width: 340px;
-	    margin: 0 auto;
-	    padding: 2ch;
-	    background: gray;
-	    text-align: center;
-	    color: white;
-	    font-size: 1em;
-	    border-radius: 10px;
-	    font-family: 'Roboto Condensed', 'Arial', 'sans-serif';
-		font-weight: bold;
-	}
-</style>
-</head>
-<body>
-	<%@include file="menu.jsp" %>
-	<div class="user-data">
-	 	<span>${user.nome}</span>
-	  	<span>${user.sobrenome}</span>
-	</div>
-</body>
-</html>
+	pageEncoding="UTF-8"%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="import" tagdir="/WEB-INF/tags/import"%>
+
+<import:header styles="pages/home.css, pages/carousel.css"
+	scripts="carousel.js, home.js" />
+
+<div
+	style="width: 100%; display: block; text-align: center; background: gray; padding-top: 3ch; padding-bottom: 3ch; font-size: 2em; color: #FFF;">
+	<c:if test="${user.nome != ''}">
+		<span>${user.nome}</span> <span>${user.sobrenome}</span>
+	</c:if>
+	
+	<c:if test="${user.nome == null}">
+		<span style="color: red;">Nada encontrado!</span>
+	</c:if>
+</div>
+
+<import:footer />

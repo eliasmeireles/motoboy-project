@@ -7,12 +7,13 @@
 <c:url var="contextPath" value="/" />
 <c:url var="jsPath" value="/resources/js/" />
 <c:url var="cssPath" value="/resources/css/" />
+<c:url var="imgPath" value="/resources/img/"/>
 
 <!DOCTYPE html>
 <html>
 <head>
 
-<title>QVTV</title>
+<title>Motoboy</title>
 
 <script>
 	var contextPath = "${contextPath}";
@@ -20,21 +21,21 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="initial-scale=1">
-
-<title>QVTV</title>
-
 <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 
+<link rel="icon" type="image/png" href="${imgPath }fav.png"/>
 <link href="${cssPath}reset.css" rel="stylesheet">
 <link href="${cssPath}base.css"  rel="stylesheet">
 <link href="${cssPath}tema.css" rel="stylesheet">
 <link href="${cssPath}menu.css" rel="stylesheet">
 <link href="${cssPath}bottom.css" rel="stylesheet">
+<link href="${cssPath}form-style.css" rel="stylesheet">
 
 <script type="text/javascript" src="${jsPath}jquery-1.12.2.min.js"></script>
-<script type="text/javascript" src="${jsPath}login.js"></script>
+<script type="text/javascript" src="${jsPath}menu.js"></script>
 <script type="text/javascript" src="${jsPath}mask.js"></script>
 <script type="text/javascript" src="${jsPath}jquery.mask.min.js"></script>
+
 
 <c:forEach items="${scripts}" var="js">
 	<script type="text/javascript" src="${jsPath}${fn:trim(js)}"></script>

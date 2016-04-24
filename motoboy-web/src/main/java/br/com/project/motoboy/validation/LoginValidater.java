@@ -2,7 +2,6 @@ package br.com.project.motoboy.validation;
 
 import org.springframework.web.servlet.ModelAndView;
 
-import br.com.project.motoboy.controller.HomeController;
 import br.com.project.motoboy.dao.ClienteDao;
 import br.com.project.motoboy.dao.MotoboyDao;
 import br.com.project.motoboy.model.Cliente;
@@ -20,7 +19,7 @@ public class LoginValidater {
 			return modelAndViewCliente(usuario);
 		}
 
-		return HomeController.home();
+		return new  ModelAndView("/");
 	}
 
 	public static ModelAndView localizaMotoboy(Motoboy m, MotoboyDao motoboyDao) {
@@ -32,7 +31,7 @@ public class LoginValidater {
 			return modelAndViewCliente(usuario);
 		}
 
-		return HomeController.home();
+		return new  ModelAndView("/");
 	}
 
 	private static ModelAndView modelAndViewCliente(Object usuario) {

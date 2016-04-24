@@ -1,0 +1,76 @@
+@CHARSET "UTF-8";
+.register-form {
+	width: 100%;
+    max-width: 400px;
+	margin: 45px auto;
+	margin-bottom: 45px;
+}
+.midle-input {
+	display: flex;
+	width: 100%;
+}
+.midle-input .midle-input_container:not(:last-of-type) {
+    margin-right: 2%;
+}
+.input {
+	height: 75px;
+    width: 100%;
+    border-radius: 5px;
+    margin: 0 auto;
+    font-weight: bold;
+}
+.input:HOVER {
+}
+.midle-input_container {
+	flex: 1;
+}
+.midle-form-box, .form-box {
+	display: block;
+    width: 92%;
+    height: 60%;
+    font-size: 1em;
+    padding-left: 2ch;
+    outline: 0;
+    border: .5px solid #C3C2C8;
+    border-radius: 8px;
+}
+.form-box {
+	display: block;
+    width: 96%;
+    font-size: 1em;
+    padding-left: 2ch;
+    outline: 0;
+    height: 60%;
+    border-radius: 8px;
+}
+.form-box:HOVER, .midle-form-box:HOVER {
+	box-shadow: 0px 36px 80px 0px #888a85;
+}
+.btn {
+	width: 50%;
+	height: 45px;
+	margin: 45px auto;
+}
+.btn-submit:HOVER {
+	box-shadow: 0px 1px 17px 5px #80a389;
+}
+.btn-submit {
+    width: 100%;
+    display: block;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 0.7em;
+    outline: 0;
+    font-size: 1em;
+    cursor: pointer;
+    border: none;
+}
+@media (min-width: 780px) {
+	.register-form {
+		width: 40%;
+		max-width: 40%;
+	}
+   .btn {
+		width: 30%;
+	}
+}

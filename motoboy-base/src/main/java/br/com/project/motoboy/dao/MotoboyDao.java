@@ -23,9 +23,14 @@ public class MotoboyDao {
 	}
 
 	public Motoboy localiza(Motoboy motoboy) {
-		TypedQuery<Motoboy> query = manager.createQuery("from Motoboy m where email = :pEmail", Motoboy.class)
-				.setParameter("pEmail", motoboy.getEmail());
-		return query.getSingleResult();
+		try {
+			TypedQuery<Motoboy> query = manager.createQuery("from Motoboy m where m.email = :email and m.senha = :senha", Motoboy.class)
+					.setParameter("email", motoboy.getEmail())
+					.setParameter("senha", motoboy.getSenha());
+			return (Motoboy) query.getSingleResult();
+		} catch (Exception e) {
+			return new Motoboy();
+		}
 	}
 	
 	public List<Motoboy> localizaTodos(Motoboy motoboy) {

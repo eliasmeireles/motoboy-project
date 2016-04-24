@@ -22,14 +22,14 @@ public class Motoboy extends BaseEntity<Motoboy> {
 	private String sobrenome;
 
 	@NotNull
-	@Size(max = 11, min = 11)
+	@Size(max = 14, min = 14)
 	private String cpf;
 
 	@NotNull
 	@Size(min = 15)
 	private String email;
 	@NotNull
-	@Size(max = 11)
+	@Size(max = 14)
 	private String celular;
 
 	@NotNull

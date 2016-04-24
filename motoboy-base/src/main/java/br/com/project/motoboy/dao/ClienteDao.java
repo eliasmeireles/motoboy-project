@@ -23,9 +23,14 @@ public class ClienteDao {
 	}
 
 	public Cliente localiza(Cliente cliente) {
-		TypedQuery<Cliente> query = manager.createQuery("from Cliente c where email = :pEmail", Cliente.class)
-				.setParameter("pEmail", cliente.getEmail());
-		return (Cliente) query.getSingleResult();
+		try {
+			TypedQuery<Cliente> query = manager.createQuery("from Cliente c where c.email = :email and c.senha = :senha", Cliente.class)
+					.setParameter("email", cliente.getEmail())
+					.setParameter("senha", cliente.getSenha());
+			return (Cliente) query.getSingleResult();
+		} catch (Exception e) {
+			return new Cliente();
+		}
 	}
 	public List<Cliente> localizaTodos(Cliente cliente) {
 		TypedQuery<Cliente> query = manager.createQuery("from Cliente", Cliente.class);
