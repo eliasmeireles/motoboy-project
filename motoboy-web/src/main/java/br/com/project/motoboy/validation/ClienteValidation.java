@@ -1,6 +1,5 @@
 package br.com.project.motoboy.validation;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
@@ -10,9 +9,13 @@ import br.com.project.motoboy.model.Cliente;
 
 public class ClienteValidation implements Validator {
 
-	@Autowired
 	ClienteValidaDao valida;
 	
+	
+	public ClienteValidation(ClienteValidaDao valida) {
+		this.valida = valida;
+	}
+
 	public boolean supports(Class<?> clazz) {
 		return Cliente.class.isAssignableFrom(clazz);
 	}

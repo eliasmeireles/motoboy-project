@@ -24,10 +24,9 @@ public class ClienteValidaDao {
 					.setParameter("email", cliente.getEmail());
 			List<Cliente> c = query.getResultList();
 			
-			for (Cliente cliente2 : c) {
-				System.out.println(cliente2);
+			if (c.size() == 0) {
+				return false;
 			}
-			
 			return true;
 		} catch (Exception e) {
 			System.out.println(e);

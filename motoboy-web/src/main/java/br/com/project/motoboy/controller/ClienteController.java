@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.project.motoboy.dao.ClienteDao;
+import br.com.project.motoboy.dao.ClienteValidaDao;
 import br.com.project.motoboy.model.Cliente;
 import br.com.project.motoboy.security.PasswordEncryptor;
 import br.com.project.motoboy.validation.ClienteValidation;
@@ -25,10 +26,14 @@ public class ClienteController {
 
 	@Autowired
 	private ClienteDao clienteDao;
+	
+	@Autowired
+	ClienteValidaDao validaDao;
+	
 
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
-		binder.addValidators(new ClienteValidation());
+		binder.addValidators(new ClienteValidation(validaDao));
 	}
 	
 	@RequestMapping(method = GET)
