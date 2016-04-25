@@ -4,16 +4,16 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
-import br.com.project.motoboy.dao.ClienteValidaDao;
 import br.com.project.motoboy.model.Cliente;
+import br.com.project.motoboy.service.ClienteService;
 
 public class ClienteValidation implements Validator {
 
-	private ClienteValidaDao valida;
+	private ClienteService clienteService;
 	
 	
-	public ClienteValidation(ClienteValidaDao valida) {
-		this.valida = valida;
+	public ClienteValidation(ClienteService clienteService) {
+		this.clienteService = clienteService;
 	}
 
 	public boolean supports(Class<?> clazz) {
@@ -31,11 +31,10 @@ public class ClienteValidation implements Validator {
 
 		Cliente cliente = (Cliente) target;
 		
-		
-		if (valida.validaEmail(cliente)) {
+		if (clienteService.localizaEmail(cliente.getEmail())) {
 			errors.rejectValue("email", "field.required.emailregistrado");
 		}
-		if (valida.validaCpf(cliente)) {
+		if (clienteService.validaCpf(cliente)) {
 			errors.rejectValue("cpf", "field.required.cpfregistrado");
 		}
 		

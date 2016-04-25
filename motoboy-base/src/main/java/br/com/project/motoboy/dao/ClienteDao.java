@@ -1,5 +1,6 @@
 package br.com.project.motoboy.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -22,18 +23,48 @@ public class ClienteDao {
 		manager.persist(cliente);
 	}
 
-	public Cliente localiza(Cliente cliente) {
+	public List<Cliente> localiza(Cliente cliente) {
+		List<Cliente> clienteLista = new ArrayList<Cliente>();
 		try {
-			TypedQuery<Cliente> query = manager.createQuery("from Cliente c where c.email = :email and c.senha = :senha", Cliente.class)
+			TypedQuery<Cliente> query = manager
+					.createQuery("from Cliente c where c.email = :email and c.senha = :senha", Cliente.class)
 					.setParameter("email", cliente.getEmail())
 					.setParameter("senha", cliente.getSenha());
-			return (Cliente) query.getSingleResult();
+			
+			clienteLista = query.getResultList();
+			return clienteLista;
 		} catch (Exception e) {
-			return new Cliente();
+			return clienteLista;
 		}
 	}
+
 	public List<Cliente> localizaTodos(Cliente cliente) {
 		TypedQuery<Cliente> query = manager.createQuery("from Cliente", Cliente.class);
 		return (List<Cliente>) query.getResultList();
+	}
+
+	public List<Cliente> localizaEmail(String email) {
+		List<Cliente> clienteLista = new ArrayList<Cliente>();
+		try {
+			TypedQuery<Cliente> query = manager.createQuery("from Cliente c where c.email = :email", Cliente.class)
+					.setParameter("email", email);
+
+			clienteLista = query.getResultList();
+			return clienteLista;
+		} catch (Exception e) {
+			return clienteLista;
+		}
+	}
+
+	public List<Cliente> validaCpf(Cliente cliente) {
+		List<Cliente> clienteLista = new ArrayList<Cliente>();
+		try {
+			TypedQuery<Cliente> query = manager.createQuery("from Cliente c where c.cpf = :cpf", Cliente.class)
+					.setParameter("cpf", cliente.getCpf());
+			clienteLista = query.getResultList();
+			return clienteLista;
+		} catch (Exception e) {
+			return clienteLista;
+		}
 	}
 }
