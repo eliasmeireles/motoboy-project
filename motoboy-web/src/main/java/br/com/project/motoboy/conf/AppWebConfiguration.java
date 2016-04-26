@@ -14,12 +14,11 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import br.com.project.motoboy.controller.HomeController;
 import br.com.project.motoboy.dao.ClienteDao;
 import br.com.project.motoboy.dao.MotoboyDao;
-import br.com.project.motoboy.dao.MotoboyValidaDao;
-import br.com.project.motoboy.service.ClienteService;
+import br.com.project.motoboy.infra.FileSaver;
 
 @EnableWebMvc
-@ComponentScan(basePackageClasses = { HomeController.class, ClienteDao.class,
-		MotoboyValidaDao.class, MotoboyDao.class })
+@ComponentScan(basePackageClasses = { HomeController.class, ClienteDao.class, MotoboyDao.class,
+		FileSaver.class})
 public class AppWebConfiguration extends WebMvcConfigurerAdapter {
 
 	@Override

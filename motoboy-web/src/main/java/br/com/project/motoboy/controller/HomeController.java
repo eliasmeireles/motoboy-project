@@ -17,8 +17,4 @@ public class HomeController {
 		Cliente c = new Cliente();
 		return new ModelAndView("home", "user", c);
 	}
-	@RequestMapping(value = "/logado", method = GET)
-	public String logado() {
-		return "logado";
-	}
 }

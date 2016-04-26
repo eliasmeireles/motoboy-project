@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,18 +22,24 @@ public class MotoboyDao {
 	}
 
 	public Motoboy localiza(Motoboy motoboy) {
-		try {
-			TypedQuery<Motoboy> query = manager.createQuery("from Motoboy m where m.email = :email and m.senha = :senha", Motoboy.class)
-					.setParameter("email", motoboy.getEmail())
-					.setParameter("senha", motoboy.getSenha());
-			return (Motoboy) query.getSingleResult();
-		} catch (Exception e) {
-			return new Motoboy();
-		}
+		List<Motoboy> m = manager.createQuery("from Motoboy m where m.email = :email and m.senha = :senha", Motoboy.class)
+				.setParameter("email", motoboy.getEmail()).setParameter("senha", motoboy.getSenha()).getResultList();
+		
+		return m.size() > 0 ? m.get(0) : null;
 	}
-	
-	public List<Motoboy> localizaTodos(Motoboy motoboy) {
-		TypedQuery<Motoboy> query = manager.createQuery("from Motoboy order by nome", Motoboy.class);
-		return (List<Motoboy>) query.getResultList();
+
+	public List<Motoboy> localizaTodos() {
+		return manager.createQuery("from Motoboy order by nome", Motoboy.class).getResultList();
 	}
+
+	public List<Motoboy> motoboyEmail(String email) {
+		return manager.createQuery("from Motoboy c where c.email = :email", Motoboy.class).setParameter("email", email)
+				.getResultList();
+	}
+
+	public List<Motoboy> motoboyCpf(String cpf) {
+		return manager.createQuery("from Motoboy c where c.cpf = :cpf", Motoboy.class).setParameter("cpf", cpf)
+				.getResultList();
+	}
+
 }

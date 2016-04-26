@@ -1,7 +1,5 @@
 package br.com.project.motoboy.service;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 
 import br.com.project.motoboy.dao.ClienteDao;
@@ -11,7 +9,6 @@ public class ClienteService {
 
 	private ClienteDao clienteDao;
 
-	
 	@Autowired
 	public ClienteService(ClienteDao clienteDao) {
 		this.clienteDao = clienteDao;
@@ -20,17 +17,17 @@ public class ClienteService {
 	public void gravar(Cliente cliente) {
 		clienteDao.gravar(cliente);
 	}
-	
-	public List<Cliente> localiza(Cliente cliente) {
+
+	public Cliente localiza(Cliente cliente) {
 		return clienteDao.localiza(cliente);
 	}
-	
-	public boolean localizaEmail(String email) {
-		return clienteDao.localizaEmail(email).size() > 0;
 
+	public Cliente localizaPorEmail(String email) {
+		return clienteDao.localizaPorEmail(email);
 	}
 
-	public boolean validaCpf(Cliente cliente) {
-		return clienteDao.validaCpf(cliente).size() > 0;
+	public Cliente localizaPorCpf(Cliente cliente) {
+		return clienteDao.localizaPorCpf(cliente);
 	}
+
 }

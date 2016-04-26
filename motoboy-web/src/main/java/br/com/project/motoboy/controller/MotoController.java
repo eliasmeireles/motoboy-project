@@ -8,16 +8,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import br.com.project.motoboy.dao.MotoDao;
 import br.com.project.motoboy.dao.MotoboyDao;
 import br.com.project.motoboy.model.Moto;
+import br.com.project.motoboy.service.MotoService;
 
 @Controller
 @RequestMapping("/moto")
 public class MotoController {
 	
 	@Autowired
-	private MotoDao motoDao;
+	private MotoService motoService;
 	@Autowired
 	MotoboyDao motoboyDao;
 	
@@ -30,7 +30,7 @@ public class MotoController {
 	public ModelAndView cadastrar(Moto moto) {
 		ModelAndView modelAndView = new ModelAndView("/moto/form");
 		
-		motoDao.gravar(moto);
+		motoService.gravar(moto);
 		
 		return modelAndView;
 	}

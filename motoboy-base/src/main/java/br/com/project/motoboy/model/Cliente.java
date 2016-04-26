@@ -16,13 +16,14 @@ public class Cliente extends BaseEntity<Cliente> {
 
 	private String nome;
 	private String sobrenome;
-	
+
 	@CPF
 	private String cpf;
 	private String email;
 	private String celular;
 	private String senha;
 	private Date datacadastro;
+	private String fotoPerfil;
 
 	public String getNome() {
 		return nome;
@@ -83,6 +84,14 @@ public class Cliente extends BaseEntity<Cliente> {
 		this.datacadastro = datacadastro;
 	}
 
+	public String getFotoPerfil() {
+		return fotoPerfil;
+	}
+
+	public void setFotoPerfil(String fotoPerfil) {
+		this.fotoPerfil = fotoPerfil;
+	}
+
 	@Override
 	public void updateBasedOn(Cliente target) {
 
@@ -93,5 +102,5 @@ public class Cliente extends BaseEntity<Cliente> {
 		return "Cliente [nome=" + nome + ", sobrenome=" + sobrenome + ", cpf=" + cpf + ", email=" + email + ", celular="
 				+ celular + ", senha=" + senha + ", datacadastro=" + datacadastro + "]";
 	}
-	
+
 }

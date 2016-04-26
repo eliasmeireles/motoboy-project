@@ -4,15 +4,15 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
-import br.com.project.motoboy.dao.MotoboyValidaDao;
 import br.com.project.motoboy.model.Motoboy;
+import br.com.project.motoboy.service.MotoboyService;
 
 public class MotoboyValidation implements Validator {
 
-	private MotoboyValidaDao valida;
+	private MotoboyService motoboyService;
 
-	public MotoboyValidation(MotoboyValidaDao valida) {
-		this.valida = valida;
+	public MotoboyValidation(MotoboyService motoboyService) {
+		this.motoboyService = motoboyService;
 	}
 
 	public boolean supports(Class<?> clazz) {
@@ -23,18 +23,19 @@ public class MotoboyValidation implements Validator {
 	public void validate(Object target, Errors errors) {
 		ValidationUtils.rejectIfEmpty(errors, "nome", "field.required");
 		ValidationUtils.rejectIfEmpty(errors, "sobrenome", "field.required");
-		ValidationUtils.rejectIfEmpty(errors, "email", "field.required");
-		ValidationUtils.rejectIfEmpty(errors, "cpf", "field.required");
 		ValidationUtils.rejectIfEmpty(errors, "celular", "field.required");
-		ValidationUtils.rejectIfEmpty(errors, "senha", "field.required.senha.null");
 
 		Motoboy motoboy = (Motoboy) target;
 		
 		
-		if (valida.validaEmail(motoboy)) {
+		if (motoboy.getFotoPerfil().length() > 150) {
+			errors.rejectValue("fotoPerfil", "field.required.outsize");
+		}
+		
+		if (motoboyService.motoboyEmail(motoboy.getEmail())) {
 			errors.rejectValue("email", "field.required.emailregistrado");
 		}
-		if (valida.validaCpf(motoboy)) {
+		if (motoboyService.motoboyCpf(motoboy.getCpf())) {
 			errors.rejectValue("cpf", "field.required.cpfregistrado");
 		}
 		

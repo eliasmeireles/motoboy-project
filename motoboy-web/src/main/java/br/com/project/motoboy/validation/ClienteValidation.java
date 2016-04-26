@@ -10,8 +10,7 @@ import br.com.project.motoboy.service.ClienteService;
 public class ClienteValidation implements Validator {
 
 	private ClienteService clienteService;
-	
-	
+
 	public ClienteValidation(ClienteService clienteService) {
 		this.clienteService = clienteService;
 	}
@@ -30,26 +29,25 @@ public class ClienteValidation implements Validator {
 		ValidationUtils.rejectIfEmpty(errors, "senha", "field.required.senha.null");
 
 		Cliente cliente = (Cliente) target;
-		
-		if (clienteService.localizaEmail(cliente.getEmail())) {
+
+		if (clienteService.localizaPorEmail(cliente.getEmail()) != null) {
 			errors.rejectValue("email", "field.required.emailregistrado");
 		}
-		if (clienteService.validaCpf(cliente)) {
+		if (clienteService.localizaPorCpf(cliente) != null) {
 			errors.rejectValue("cpf", "field.required.cpfregistrado");
 		}
-		
 
 		if (cliente.getSenha().length() < 8) {
 			errors.rejectValue("senha", "field.required.pequena");
 		}
-		
-		if(cliente.getCelular().length() < 14 || cliente.getCelular().length() > 14) {
+
+		if (cliente.getCelular().length() < 14 || cliente.getCelular().length() > 14) {
 			errors.reject("celular", "field.required");
 		}
-		if(cliente.getCpf().length() < 14 || cliente.getCpf().length() > 14) {
+		if (cliente.getCpf().length() < 14 || cliente.getCpf().length() > 14) {
 			errors.reject("cpf", "field.require");
 		}
-		
+
 	}
 
 }

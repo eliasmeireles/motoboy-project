@@ -10,6 +10,7 @@ create table cliente (
 	email varchar(50) not null unique,
     senha varchar(96) not null,
     datacadastro date not null,
+    fotoPerfil varchar(150) unique,
 	celular char(14) not null
 );
 alter table cliente add constraint pk_cliente primary key (id);
@@ -22,6 +23,7 @@ create table motoboy (
 	cpf char(14) not null unique,
 	email varchar(50) not null unique,
     datacadastro date not null,
+    fotoPerfil varchar(150) unique,
 	celular char(14) not null
 );
 alter table motoboy add constraint pk_motoboy primary key (id);

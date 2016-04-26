@@ -5,6 +5,9 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.br.CPF;
 
 @Entity
 @Table(name = "motoboy")
@@ -14,11 +17,14 @@ public class Motoboy extends BaseEntity<Motoboy> {
 
 	private String nome;
 	private String sobrenome;
+	
+	@CPF
 	private String cpf;
 	private String email;
 	private String celular;
 	private String senha;
 	private Date datacadastro;
+	private String fotoPerfil;
 
 	public String getNome() {
 		return nome;
@@ -77,6 +83,15 @@ public class Motoboy extends BaseEntity<Motoboy> {
 
 	public void setDatacadastro(Date datacadastro) {
 		this.datacadastro = datacadastro;
+	}
+
+	@Size(max = 150)
+	public String getFotoPerfil() {
+		return fotoPerfil;
+	}
+
+	public void setFotoPerfil(String fotoPerfil) {
+		this.fotoPerfil = fotoPerfil;
 	}
 
 	@Override

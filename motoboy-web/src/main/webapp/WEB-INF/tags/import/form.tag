@@ -31,6 +31,13 @@
 					<input type="password" placeholder="A senha novamente" class="midle-form-box font-primary background-secondary_light">
 				</div>
 			</div>
+			<div class="input">
+				<html:input label="Foto" name="fotoPerfil" cssClass="hidden form-box font-primary background-secondary_light" />
+			</div>
+			
+			<div class="input">
+				<input name="foto" type="file" class="form-box font-primary background-secondary_light" />
+			</div>
 			
 			<div class="btn">	
 				<button type="submit" class="btn-submit background-primary color-secondary_light font-primary-bold">Cadastrar</button>
