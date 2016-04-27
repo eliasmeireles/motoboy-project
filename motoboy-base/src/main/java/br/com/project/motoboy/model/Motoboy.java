@@ -7,8 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
-import org.hibernate.validator.constraints.br.CPF;
-
 @Entity
 @Table(name = "motoboy")
 public class Motoboy extends BaseEntity<Motoboy> {
@@ -18,7 +16,6 @@ public class Motoboy extends BaseEntity<Motoboy> {
 	private String nome;
 	private String sobrenome;
 	
-	@CPF
 	private String cpf;
 	private String email;
 	private String celular;
@@ -29,7 +26,6 @@ public class Motoboy extends BaseEntity<Motoboy> {
 	public String getNome() {
 		return nome;
 	}
-
 	public void setNome(String nome) {
 		this.nome = nome;
 	}

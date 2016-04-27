@@ -36,7 +36,7 @@
 							<td class="table-value"><img class="foto-perfil" alt="img" src="${contextPath}resources/img/sem-foto.jpg"></td>
 						</c:if>
 						<td class="table-value">${motoboy.nome} ${motoboy.sobrenome}</td>
-						<td class="table-value">${motoboy.email}z</td>
+						<td class="table-value">${motoboy.email}</td>
 						<td class="table-value">${motoboy.celular}</td>
 						<td class="table-value">
 							<fmt:formatDate value="${motoboy.datacadastro}" pattern="dd/MM/yyyy" />

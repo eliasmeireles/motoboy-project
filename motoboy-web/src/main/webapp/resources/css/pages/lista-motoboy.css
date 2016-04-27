@@ -19,9 +19,9 @@
     padding-bottom: 1.5ch;
 }
 .foto-perfil {
-    width: 130px;
-    height: 102px;
-    border-radius: 100%;
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
 }
 
 button {

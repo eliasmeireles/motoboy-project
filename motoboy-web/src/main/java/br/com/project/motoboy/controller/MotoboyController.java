@@ -61,7 +61,7 @@ public class MotoboyController {
 			String imageName = PasswordEncryptor.passwordEncripter(foto.getOriginalFilename() + motoboy.getEmail())
 					.toString();
 
-			String path = fileSaver.write(imageName, "imagens", foto);
+			String path = fileSaver.write(imageName, "motoboy-image", foto);
 			motoboy.setFotoPerfil(path);
 		}
 		

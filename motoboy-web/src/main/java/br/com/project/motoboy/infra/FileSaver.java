@@ -19,10 +19,10 @@ public class FileSaver {
 		try {
 
 			String realPath = request.getServletContext().getRealPath("/" + baseFolder);
-			String path = realPath + "/" +  userImageName + file.getOriginalFilename();
+			String path = realPath + "/" +  userImageName + ".jpg";
 			file.transferTo(new File(path));
 
-			return baseFolder + "/" + userImageName +file.getOriginalFilename();
+			return baseFolder + "/" + userImageName + ".jpg";
 
 		} catch (Exception e) {
 			throw new RuntimeException(e);

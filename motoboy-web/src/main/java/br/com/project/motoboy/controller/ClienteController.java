@@ -54,7 +54,7 @@ public class ClienteController {
 				String imageName = PasswordEncryptor.passwordEncripter(foto.getOriginalFilename() + cliente.getEmail())
 						.toString();
 
-				String path = fileSaver.write(imageName, "imagens", foto);
+				String path = fileSaver.write(imageName, "cliente-image", foto);
 				cliente.setFotoPerfil(path);
 			}
 		}
