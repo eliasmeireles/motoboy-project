@@ -9,11 +9,11 @@
 
 <div
 	style="width: 100%; display: block; text-align: center; background: gray; padding-top: 3ch; padding-bottom: 3ch; font-size: 2em; color: #FFF;">
-	<c:if test="${user.nome != ''}">
-		<span>${user.nome}</span> <span>${user.sobrenome}</span>
+	<c:if test="${!empty sessionScope.connectedUser}">
+		<span>${connectedUser.nome}</span> <span>${connectedUser.sobrenome}</span>
 	</c:if>
 	
-	<c:if test="${user.nome == null}">
+	<c:if test="${empty sessionScope.connectedUser}">
 		<span style="color: red;">Nada encontrado!</span>
 	</c:if>
 </div>

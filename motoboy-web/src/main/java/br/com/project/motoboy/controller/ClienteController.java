@@ -3,6 +3,7 @@ package br.com.project.motoboy.controller;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -75,13 +76,15 @@ public class ClienteController {
 	}
 
 	@RequestMapping(value = "/login", method = POST)
-	public ModelAndView logar(Cliente cliente, RedirectAttributes redirectAttributes) {
+	public ModelAndView logar(Cliente cliente, HttpSession session) {
 		cliente.setSenha(PasswordEncryptor.passwordEncripter(cliente.getSenha()).toString());
-
+		
 		Cliente c = clienteService.localiza(cliente);
-
-		redirectAttributes.addFlashAttribute("user", c);
-		ModelAndView modelAndView = new ModelAndView("redirect:/login/logado");
-		return modelAndView;
+		if (c != null) {
+			session.setAttribute("connectedUser", c);
+			return new ModelAndView("redirect:/login/logado");
+		} else {
+			return new ModelAndView("redirect:/");
+		}
 	}
 }

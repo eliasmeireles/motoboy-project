@@ -29,16 +29,23 @@
 .nav-link .navication-link {
 	color: #FFFFFF;
 }
-.nav-link-login {
+.nav-link-login, .nav-link-logout {
 	max-height: 55px;
 	position: relative;
 	cursor: pointer;
-} 
+}
+.nav-link-logout .btn-logout {
+	background: transparent;
+    border: none;
+    font-size: 1em;
+    color: #fff;
+    cursor: pointer;
+}
 .menu-responsiv {
 	width: 85px;
     height: 30px;
     position: absolute;
-    top: 22px;
+    top: 28px;
     left: 3%;
     display: flex;
     align-items: center;

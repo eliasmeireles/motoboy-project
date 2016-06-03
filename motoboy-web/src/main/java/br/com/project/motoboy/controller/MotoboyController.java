@@ -5,6 +5,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -92,15 +93,16 @@ public class MotoboyController {
 	}
 
 	@RequestMapping(value = "/login", method = POST)
-	public ModelAndView logar(Motoboy motoboy, RedirectAttributes redirectAttributes) {
+	public ModelAndView logar(Motoboy motoboy, HttpSession session) {
 		motoboy.setSenha(PasswordEncryptor.passwordEncripter(motoboy.getSenha()).toString());
-
 		Motoboy m = motoboyService.localiza(motoboy);
-
-		redirectAttributes.addFlashAttribute("user", m);
-
-		ModelAndView modelAndView = new ModelAndView("redirect:/login/logado");
-		return modelAndView;
+		
+		if (m != null) {
+			session.setAttribute("connectedUser", m);
+			return new ModelAndView("redirect:/login/logado");
+		} else {
+			return new ModelAndView("redirect:/");
+		}
 	}
 
 }

@@ -8,6 +8,7 @@ import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.support.StandardServletMultipartResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
@@ -15,12 +16,18 @@ import br.com.project.motoboy.controller.HomeController;
 import br.com.project.motoboy.dao.ClienteDao;
 import br.com.project.motoboy.dao.MotoboyDao;
 import br.com.project.motoboy.infra.FileSaver;
+import br.com.project.motoboy.interceptor.LoginInterceptor;
 
 @EnableWebMvc
 @ComponentScan(basePackageClasses = { HomeController.class, ClienteDao.class, MotoboyDao.class,
 		FileSaver.class})
 public class AppWebConfiguration extends WebMvcConfigurerAdapter {
 
+	@Override
+    public void addInterceptors (InterceptorRegistry registry) {
+        registry.addInterceptor(new LoginInterceptor());
+    }
+	
 	@Override
 	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
 		configurer.enable();

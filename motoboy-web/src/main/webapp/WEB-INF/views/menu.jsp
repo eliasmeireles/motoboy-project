@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <header>
 	<div class="header-menu background-primary">
 		<div class="menu-responsiv">
@@ -15,7 +16,18 @@
 				<li class="nav-link font-primary"><a class="navication-link" href="${contextPath}cliente">Cliente cadastro</a></li>
 				<li class="nav-link font-primary"><a class="navication-link" href="${contextPath}motoboy/lista">Lista de Motoboys</a></li>
 				<li class="nav-link font-primary"><a class="navication-link" href="${contextPath}moto">Adicionar Moto</a></li>
-				<li class="nav-link nav-link-login font-primary color_primary_light">Login</li>
+				<c:if test='${empty sessionScope.connectedUser}'>
+					<li class="nav-link nav-link-login font-primary color_primary_light">Login</li>
+				</c:if> 
+				<c:if test='${!empty sessionScope.connectedUser}'>
+					<li class="nav-link font-primary"><a class="navication-link" href="${contextPath}meus_dados">Meus dados</a></li>
+					<li class="nav-link nav-link-logout font-primary color_primary_light">
+						<form action="${contextPath }logout" method="Post">
+							<input type="hidden" value="${sessionScope.connectedUser}">
+							<button class="btn-logout">Logout</button>
+						</form>
+					</li>
+				</c:if> 
 			</ul>
 			<div class="login-form background-primary_dark">
 				<div class="motoboy-login login-container">

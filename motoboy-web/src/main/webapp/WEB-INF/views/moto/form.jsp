@@ -16,9 +16,8 @@
 	<div class="container">
 			<h3 class="cadastro-title">Seja bem vindo ao nosso site</h3>
 			
-			<form:form action="${contextPath}motoboy/cadastrar" method="post" commandName="motoboy" cssClass="register-form">
-				<import:form />
-			</form:form>
+			<%-- <form:form action="${contextPath}motoboy/cadastrar" method="post" commandName="motoboy" cssClass="register-form">
+			</form:form> --%>
 
 	</div>
 

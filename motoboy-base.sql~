@@ -2,7 +2,6 @@ drop schema if exists fast_motoboy;
 create schema fast_motoboy;
 use fast_motoboy;
 
-drop table if exists cliente;
 create table cliente (
 	id char(36) not null,
 	nome varchar(50) not null,
